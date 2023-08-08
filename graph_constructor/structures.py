@@ -8,7 +8,7 @@ import random
 class User():
     def __init__(self, nickname, *args):
         self.nickname = nickname
-        
+
         self.firstname = ""
         self.lastname = ""
         self.patronymic = ""
@@ -16,7 +16,10 @@ class User():
         self.location = ""
         self.phone = ""
         self.email = ""
-    
+        self.language = ""
+        self.university = ""
+        self.work_experience = ""
+
     def __str__(self):
         return f"Пользователь: {self.nickname}"
 
@@ -38,7 +41,7 @@ class SocialGraph:
 
         for user_i in data.to_numpy():
             self.nodes[len(self.nodes)] = (User(user_i[7]))
-    
+
     def add_node(self, user):
         self.nodes[len(self.nodes)] = user
 
