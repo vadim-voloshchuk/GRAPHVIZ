@@ -1,9 +1,14 @@
 # Импорт внешних библиотек
 import pandas as pd
 import numpy
+import networkx as nx
+import matplotlib.pyplot as plt
 
 # Импорт внутренних библиотек
 import random
+
+# Импорт модулей проекта
+# from .common.pereferences import *
 
 class User():
     def __init__(self, nickname, *args):
@@ -23,10 +28,13 @@ class User():
     def __str__(self):
         return f"Пользователь: {self.nickname}"
 
+    def get_nick(self):
+        return self.nickname
+
 class SocialGraph:
     def __init__(self, nodes = []):
         self.nodes = {}
-        self.edges = []
+        self.edges = {}
 
         for i in range(len(nodes)):
             self.nodes[i] = nodes[i]
@@ -37,19 +45,72 @@ class SocialGraph:
     def read_csv(self, path):
         data = pd.read_csv(path)
 
-        print(data.to_numpy())
-
         for user_i in data.to_numpy():
             self.nodes[len(self.nodes)] = (User(user_i[7]))
 
     def add_node(self, user):
+        # TODO (V): Сделать систему внутри метода, чтобы пользователь добавлял параметры без инициализации класса User
         self.nodes[len(self.nodes)] = user
 
-    def add_edge(self):
-        pass
+    def add_edge(self, id_1, id_2, weight = 0.5, type_c = None): 
+        # TODO (V): Сделать проверку на существующие id вершин
+        assert -1 <= weight <= 1, "Вес связи выходит за установленные границы: [-1, 1]"
+        self.edges[len(self.edges)] = {
+                'source' : id_1, 
+                'target': id_2,
+                'weight': weight,
+                'type': type_c
+                }
+    
+    def get_nodes(self, table_pd = False, show = False):
+        if table_pd:
+            raw_table = {
+                'index': [],
+                'nickname': []
+            }
+
+            for i in range(len(self.nodes)):
+                raw_table['index'].append(i)
+                raw_table['nickname'].append(self.nodes[i].get_nick())
+
+            result = pd.DataFrame(raw_table)
+        
+        else:
+            result = self.nodes
+
+        if show:
+            print(result)
+        
+        return result
+
+    # TODO (A): Дописать по анологии с get_nodes
+    # def get_edges(self):
+    #     pass
+
+    # TODO (A): Реализовать удаление элементов графа (по сути элементов словаря)
+    # def del_node(self, id):
+    #     pass
+
+    # def del_edge(self):
+    #     pass
+
+    # TODO (V): Дописать правильное обращение к классу User
+    # def update_node(self, id, param, value):
+    #     self.nodes[id][param] = value
+
+    def update_edge(self, id, param, value):
+        self.edges[id][param] = value
+
+    # def draw(self):
+    #     plt.figure(figsize=(15, 20))
+
+    #     G_VIS = nx.
+
 
 if __name__ == "__main__":
     g = SocialGraph()
-    g.read_csv('../common/test_data/gen_data.csv')
+    g.read_csv('common/test_data/gen_data.csv')
+    g.add_edge(3, 4)
 
-    print(g.nodes)
+    # g.get_nodes(show=True)
+    print(g)
