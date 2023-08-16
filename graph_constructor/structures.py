@@ -55,16 +55,16 @@ class SocialGraph:
         # TODO (V): Сделать систему внутри метода, чтобы пользователь добавлял параметры без инициализации класса User
         self.nodes[len(self.nodes)] = user
 
-    def add_edge(self, id_1, id_2, weight = 0.5, type_c = None): 
+    def add_edge(self, id_1, id_2, weight = 0.5, type_c = None):
         # TODO (V): Сделать проверку на существующие id вершин
         assert -1 <= weight <= 1, "Вес связи выходит за установленные границы: [-1, 1]"
         self.edges[len(self.edges)] = {
-                'source' : id_1, 
+                'source' : id_1,
                 'target': id_2,
                 'weight': weight,
                 'type': type_c
                 }
-    
+
     def get_nodes(self, table_pd = False, show = False):
         if table_pd:
             raw_table = {
@@ -77,25 +77,60 @@ class SocialGraph:
                 raw_table['nickname'].append(self.nodes[i].get_nick())
 
             result = pd.DataFrame(raw_table)
-        
+
         else:
             result = self.nodes
 
         if show:
             print(result)
-        
+
         return result
 
     # TODO (A): Дописать по анологии с get_nodes
-    # def get_edges(self):
-    #     pass
+    def get_edges(self, table_pd=False, show=False):
+        if table_pd:
+            raw_table = {
+                'index': [],
+                'source': [],
+                'target': [],
+                'weight': [],
+                'type': []
+            }
+
+            for i, (edge_id, edge) in enumerate(self.edges.items()):
+                raw_table['index'].append(i)
+                raw_table['source'].append(edge['source'])
+                raw_table['target'].append(edge['target'])
+                raw_table['weight'].append(edge['weight'])
+                raw_table['type'].append(edge['type'])
+
+            result = pd.DataFrame(raw_table)
+
+        else:
+            result = self.edges
+
+        if show:
+            print(result)
+
+        return result
 
     # TODO (A): Реализовать удаление элементов графа (по сути элементов словаря)
-    # def del_node(self, id):
-    #     pass
+    def del_node(self, id):
+        if id in self.nodes:
+            del self.nodes[id]
 
-    # def del_edge(self):
-    #     pass
+            remove_edges = []
+            for edge_id, edge in self.edges.items():
+                if edge['source'] == id or edge['target'] == id:
+                    remove_edges.append(edge_id)
+
+            for edge_id in remove_edges:
+                del self.edges[edge_id]
+
+    def del_edge(self, id):
+        if id in self.edges:
+            del self.edges[id]
+
 
     # TODO (V): Дописать правильное обращение к классу User
     def update_node(self, id, param, value):
