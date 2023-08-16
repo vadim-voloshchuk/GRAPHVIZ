@@ -28,6 +28,9 @@ class User():
     def __str__(self):
         return f"Пользователь: {self.nickname}"
 
+    def set_param(self, param, value):
+        
+
     def get_nick(self):
         return self.nickname
 
@@ -95,8 +98,8 @@ class SocialGraph:
     #     pass
 
     # TODO (V): Дописать правильное обращение к классу User
-    # def update_node(self, id, param, value):
-    #     self.nodes[id][param] = value
+    def update_node(self, id, param, value):
+        self.nodes[id].set_attr(param, value)
 
     def update_edge(self, id, param, value):
         self.edges[id][param] = value
