@@ -1,0 +1,7 @@
+.check{
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    display: flex;
+}

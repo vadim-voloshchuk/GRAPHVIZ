@@ -28,9 +28,6 @@ class User():
     def __str__(self):
         return f"Пользователь: {self.nickname}"
 
-    def set_param(self, param, value):
-        
-
     def get_nick(self):
         return self.nickname
 
@@ -57,6 +54,11 @@ class SocialGraph:
 
     def add_edge(self, id_1, id_2, weight = 0.5, type_c = None):
         # TODO (V): Сделать проверку на существующие id вершин
+        try:
+            value = self.nodes[id_1]
+            value = self.nodes[id_2]
+        except KeyError:
+            print("id не найдено в cписке связей")
         assert -1 <= weight <= 1, "Вес связи выходит за установленные границы: [-1, 1]"
         self.edges[len(self.edges)] = {
                 'source' : id_1,
@@ -134,15 +136,10 @@ class SocialGraph:
 
     # TODO (V): Дописать правильное обращение к классу User
     def update_node(self, id, param, value):
-        self.nodes[id].set_attr(param, value)
+            (self.nodes[id], param, value)
 
     def update_edge(self, id, param, value):
         self.edges[id][param] = value
-
-    # def draw(self):
-    #     plt.figure(figsize=(15, 20))
-
-    #     G_VIS = nx.
 
 
 if __name__ == "__main__":
