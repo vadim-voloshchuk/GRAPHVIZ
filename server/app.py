@@ -12,7 +12,7 @@ def hello():
 def api():
     user = 'Egor'
 
-    return render_template('main.html', user= user)
+    return render_template('api.html', user= user)
 
 @app.route('/docs')
 def docs():
