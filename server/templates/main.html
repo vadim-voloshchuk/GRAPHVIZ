@@ -4,9 +4,63 @@
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = '/styles/main.css')}}">
     </head>
     <body>
-        <div class="check">
-            <h1>Hello world, {{user}}</h1>
-            <h2>Любите аниме!</h2>
+        <div class="container">
+            <div class="header">
+                <div>
+                <img src="../assets/GRAPHVIZ.png" alt="GRAPHVIZ" />
+                </div>
+                <div class="menu">
+                    <a class="menu_main" href="/main">
+                        Главная
+                    </a>
+                    <a class="menu_api" href="/api">
+                        API
+                    </a>
+                    <a class="menu_docs" href="/docs">
+                        Документация
+                    </a>
+                    <a class="menu_settings" href="/settings">
+                        Настройки
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="sidenav">
+                <button>Импорт данных</button>
+                <button>Генерация данных</button>
+              </div>
+              <div class="sidenavTwo">
+                <button>Отображение характеристик графа</button>
+              </div>
+
+              <div class="main">
+                <p>Ввести название графа</p>
+                <input type="text" />
+
+                <div class="panel_graph">
+                    <select>
+                        <option>Поиск метрик</option>
+                        <option>Метрика 1</option>
+                        <option>Метрика 2</option>
+                    </select>
+
+                    <div>
+                        <button>Добавить отношение</button>
+                        <button>Добавить вершину</button>
+                    </div>
+                </div>
+
+                <textarea name="" id="" cols="160" rows="20"></textarea>
+
+                <div>
+                    <button>Удалить</button>
+                    <button>Дублировать</button>
+                    <button>Редактировать</button>
+                    <button>Соединить</button>
+                </div>
+              </div>
         </div>
+
     </body>
 </html>

@@ -1,0 +1,31 @@
+/* header */
+
+.header {
+    /* position: fixed; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu_main {
+    padding-right: 10px;
+}
+
+.menu_api {
+    padding-right: 10px;
+}
+
+.menu_docs {
+    padding-right: 10px;
+}
+
+.nav_panel {
+    display: flex;
+}
+
+.search {
+    margin-right: 10px;
+}
+
+.sort {
+    margin-right: 10px;
+}

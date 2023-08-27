@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Главная</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = '/styles/main.css')}}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div>
+                <img src="../assets/GRAPHVIZ.png" alt="GRAPHVIZ" />
+                </div>
+                <div class="menu">
+                    <a class="menu_main" href="/main">
+                        Главная
+                    </a>
+                    <a class="menu_api" href="/api">
+                        API
+                    </a>
+                    <a class="menu_docs" href="/docs">
+                        Документация
+                    </a>
+                    <a class="menu_settings" href="/settings">
+                        Настройки
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="nav_panel">
+                <p class="search">
+                    <input type="search" name="q" placeholder="Поиск">
+                    <input type="submit" value="Найти">
+                </p>
+                <button class="sort">
+                    Сортировка
+                </button>
+                <button>
+                    Фильтр
+                </button>
+            </div>
+
+        </div>
+
+    </body>
+</html>

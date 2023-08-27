@@ -1,7 +1,91 @@
-.check{
-    border: 1px solid black;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
+.container {
+    padding-left: 50;
+    padding-right: 50px;
+}
+
+/* header */
+
+.header {
+    /* position: fixed; */
     display: flex;
+    justify-content: space-between;
+}
+
+.menu_main {
+    padding-right: 10px;
+}
+
+.menu_api {
+    padding-right: 10px;
+}
+
+.menu_docs {
+    padding-right: 10px;
+}
+
+/* sidebar */
+
+.sidenav {
+    height: 50%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 30px;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenavTwo {
+	height: 50%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 0;
+    background-color: red;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenavTwo a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenavTwo a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.panel_graph {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
