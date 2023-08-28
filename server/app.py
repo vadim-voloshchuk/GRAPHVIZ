@@ -24,7 +24,7 @@ def docs():
 def settings():
     user = 'Egor'
 
-    return render_template('main.html', user= user)
+    return render_template('settings.html', user= user)
 
 @app.route('/test', methods=['POST', 'GET'])
 def test():

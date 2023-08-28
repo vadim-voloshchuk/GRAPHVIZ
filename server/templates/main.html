@@ -5,6 +5,7 @@
     </head>
     <body>
         <div class="container">
+            {% block content %}
             <div class="header">
                 <div>
                 <img src="../assets/GRAPHVIZ.png" alt="GRAPHVIZ" />
@@ -19,12 +20,13 @@
                     <a class="menu_docs" href="/">
                         Документация
                     </a>
-                    <a class="menu_settings" href="/">
+                    <a class="menu_settings" href="/settings">
                         Настройки
                     </a>
 
                 </div>
             </div>
+            {% endblock %}
 
             <div class="sidenav">
                 <button>Импорт данных</button>

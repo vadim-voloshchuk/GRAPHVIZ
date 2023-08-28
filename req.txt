@@ -5,3 +5,4 @@ networkx
 mimesis
 pyvis
 flask
+Jinja2

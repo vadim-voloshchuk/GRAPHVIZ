@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Настройки</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = '/styles/settings.css')}}">
+    </head>
+    <body>
+        {% extends "main.html" %}
+        {% block content %}
+        {% endblock %}
+
+        <h1 class="font">Настройки</h1>
+
+        <form action="/" method="POST">
+            <button type="submit" name="font-btn">Изменить шрифт</button>
+            <button type="submit" name="theme-btn">Изменить тему</button>
+        </form>
+
+        {% if font_changed %}
+            <style>
+                .font {
+                    font-family: Verdana, sans-serif;
+                }
+            </style>
+        {% endif %}
+
+        {% if theme_changed %}
+            <style>
+                .theme-light {
+                    background-color: #eee;
+                    color: #333;
+                }
+
+                .theme-dark {
+                    background-color: #333;
+                    color: #eee;
+                }
+            </style>
+        {% endif %}
+
+    </body>
+</html>
