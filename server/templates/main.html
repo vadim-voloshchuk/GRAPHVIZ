@@ -2,64 +2,96 @@
     <head>
         <title>Главная</title>
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = '/styles/main.css')}}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="container">
-            {% block content %}
+        {% block content %}
             <div class="header">
-                <div>
-                <img src="../assets/GRAPHVIZ.png" alt="GRAPHVIZ" />
+                <div class="container_header">
+                    <div>
+                        <!-- <img src="../assets/GRAPHVIZ.png" alt="GRAPHVIZ" /> -->
+                        <h2>GRAPHVIZ</h2>
+                    </div>
+                    <div class="menu">
+                        <a class="menu_main" href="/">
+                            Главная
+                        </a>
+                        <a class="menu_api" href="/api">
+                            API
+                        </a>
+                        <a class="menu_docs" href="/">
+                            Документация
+                        </a>
+                        <a class="menu_settings" href="/settings">
+                            Настройки
+                        </a>
+                    </div>
                 </div>
-                <div class="menu">
-                    <a class="menu_main" href="/">
-                        Главная
-                    </a>
-                    <a class="menu_api" href="/api">
-                        API
-                    </a>
-                    <a class="menu_docs" href="/">
-                        Документация
-                    </a>
-                    <a class="menu_settings" href="/settings">
-                        Настройки
-                    </a>
 
-                </div>
             </div>
             {% endblock %}
-
+        <div class="container">
             <div class="sidenav">
-                <button>Импорт данных</button>
-                <button>Генерация данных</button>
+                <div class="tabs">
+                    <div class="tab">
+                        <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+                        <label for="tab-1" class="tab-label">Импорт данных</label>
+                        <div class="tab-content">
+                            <div class="border_file">
+                              <label style="color: white;">Загрузить из файла</label>
+                              <input type="file" />
+                            </div>
+                            <div class="border_url">
+                              <label style="color: white;">Загрузить файл по ссылке</label>
+                              <input type="url" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+                        <label for="tab-2" class="tab-label">Генерация</label>
+                        <div class="tab-content">Типа генерации данных</div>
+                    </div>
+                </div>
               </div>
               <div class="sidenavTwo">
-                <button>Отображение характеристик графа</button>
+                <div class="header_sidenav_harac">
+                    <label class="text_header_sidenav_harac">Отображение характеристик данных</label>
+                </div>
               </div>
 
               <div class="main">
-                <p>Ввести название графа</p>
-                <input type="text" />
+                <p>Введите название графа</p>
+                <input class="input_name_graph" placeholder="Имя графа" type="text" />
 
                 <div class="panel_graph">
                     <select>
                         <option>Поиск метрик</option>
-                        <option>Метрика 1</option>
-                        <option>Метрика 2</option>
+                        <option>Центральность по степени</option>
+                        <option>Центральность по близости</option>
+                        <option>Смежные группы</option>
                     </select>
 
                     <div>
-                        <button>Добавить отношение</button>
-                        <button>Добавить вершину</button>
+                        <button class="btn_add">Добавить отношение</button>
+                        <button class="btn_add">Добавить вершину</button>
                     </div>
                 </div>
 
-                <textarea name="" id="" cols="160" rows="20"></textarea>
+                <textarea name="тип тут сам граф будет" id="" cols="160" rows="20"></textarea>
 
-                <div>
-                    <button>Удалить</button>
-                    <button>Дублировать</button>
-                    <button>Редактировать</button>
-                    <button>Соединить</button>
+                <div class="info_graph">
+                    <p style="margin-left: 10px;">Тип: Вершина</p>
+                    <div class="btn_nav_all">
+                        <button class="btn_nav">Удалить</button>
+                        <button class="btn_nav">Дублировать</button>
+                        <button class="btn_nav">Редактировать</button>
+                        <button class="btn_nav">Соединить</button>
+                    </div>
+
                 </div>
               </div>
         </div>
