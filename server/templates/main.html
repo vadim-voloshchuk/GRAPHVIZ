@@ -76,8 +76,85 @@
                     </select>
 
                     <div>
-                        <button class="btn_add">Добавить отношение</button>
-                        <button class="btn_add">Добавить вершину</button>
+                        <button id="btn_add_edge" class="btn_add">Добавить отношение</button>
+
+                        <div id="modalEdge" class="modal_edge">
+                            <div class="modal-content-edge">
+                              <div class="modal-header-edge">
+                                <span class="close-edge">&times;</span>
+                                <h2>Добавить отношение</h2>
+                              </div>
+                              <div class="modal-body-edge">
+                                <p>Укажите индексы вершин, которые хотите соединить </p>
+                                <input type="text" placeholder="Первая вершина" />
+                                <input type="text" placeholder="Вторая вершина" />
+                                <select>
+                                    <option>Тип связи</option>
+                                    <option>Братья</option>
+                                    <option>Друзья</option>
+                                    <option>Влюбленные</option>
+                                </select>
+                                <button>Создать</button>
+                              </div>
+                            </div>
+                        </div>
+                        <script lang="JavaScript">
+                            var modal_edge = document.getElementById('modalEdge');
+                            var btn_add_edge = document.getElementById("btn_add_edge");
+                            var span_edge = document.getElementsByClassName("close-edge")[0];
+
+                            btn_add_edge.onclick = function() {
+                                modal_edge.style.display = "block";
+                            }
+
+                            span_edge.onclick = function() {
+                                modal_edge.style.display = "none";
+                            }
+
+                            window.onclick = function(event) {
+                                if (event.target == modal_edge) {
+                                    modal_edge.style.display = "none";
+                                }
+                            }
+                        </script>
+
+                        <button id="myBtn" class="btn_add">Добавить вершину</button>
+
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Добавить вершину</h2>
+                              </div>
+                              <div class="modal-body">
+                                <p>Укажите атрибуты вершины:</p>
+                                <input type="text" placeholder="Имя" />
+                                <input type="text" placeholder="Фамилия" />
+                                <input type="text" placeholder="Отчество" />
+                              </div>
+                              <button>Добавить</button>
+                            </div>
+                        </div>
+                        <script lang="JavaScript">
+                            var modal = document.getElementById('myModal');
+                            var btn = document.getElementById("myBtn");
+                            var span = document.getElementsByClassName("close")[0];
+
+                            btn.onclick = function() {
+                                modal.style.display = "block";
+                            }
+
+                            span.onclick = function() {
+                                modal.style.display = "none";
+                            }
+
+                            window.onclick = function(event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
+                            }
+                        </script>
+
                     </div>
                 </div>
 
