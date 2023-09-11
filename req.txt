@@ -1,8 +1,0 @@
-numpy
-matplotlib
-pandas
-networkx
-mimesis
-pyvis
-flask
-Jinja2

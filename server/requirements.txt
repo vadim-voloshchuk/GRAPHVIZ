@@ -1,0 +1,12 @@
+numpy
+matplotlib
+pandas
+networkx
+mimesis
+pyvis
+flask
+Jinja2
+prometheus-flask-exporter==0.1.2
+flask-cors
+coverage
+gunicorn
