@@ -386,3 +386,25 @@ body{
 }
 
 .modal-body-edge {padding: 2px 16px;}
+
+.input {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  outline: none;
+  border-bottom: 2px solid #FFF;
+}
+
+.input_black {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  outline: none;
+  border-bottom: 2px solid #000000;
+  width: 315px;
+}
+
+.label_modal {
+  display: block;
+  margin-top: 10px;
+}
